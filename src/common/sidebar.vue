@@ -7,45 +7,15 @@
           <template v-for="item in items">
             <el-submenu :index="item.index" :key="item.index">
               <template slot="title">
-                <i class="el-icon-location"></i>
-                <span slot="title">导航一</span>
+                <i :class="item.icon"></i>
+                <span slot="title">{{item.title}}</span>
               </template>
-              <el-menu-item-group>
-                <el-menu-item index="Page1">选项1</el-menu-item>
-                <el-menu-item index="Page2">选项2</el-menu-item>
-              </el-menu-item-group>
+              <el-menu-item v-for="subItem in subItems" :key="subItem.index" :index="subItem.index">
+                <i :class="subItem.icon"></i>
+                <span slot="title">{{subItem.title}}</span>
+              </el-menu-item>
             </el-submenu>
           </template>
-          <el-submenu index="2">
-            <template slot="title">
-              <i class="el-icon-menu"></i>
-              <span slot="title">导航二</span>
-            </template>
-            <el-menu-item-group>
-              <el-menu-item index="Page3">选项3</el-menu-item>
-              <el-menu-item index="Page4">选项4</el-menu-item>
-            </el-menu-item-group>
-          </el-submenu>
-          <el-submenu index="3">
-            <template slot="title">
-              <i class="el-icon-document"></i>
-              <span slot="title">导航三</span>
-            </template>
-            <el-menu-item-group>
-              <el-menu-item index="Page5">选项5</el-menu-item>
-              <el-menu-item index="Page6">选项6</el-menu-item>
-            </el-menu-item-group>
-          </el-submenu>
-          <el-submenu index="4">
-            <template slot="title">
-              <i class="el-icon-setting"></i>
-              <span slot="title">导航四</span>
-            </template>
-            <el-menu-item-group>
-              <el-menu-item index="Page9">选项7</el-menu-item>
-              <el-menu-item index="Page10">选项8</el-menu-item>
-            </el-menu-item-group>
-          </el-submenu>
         </el-menu>
       </div>
     </aside>
@@ -61,29 +31,31 @@
         collapse: false,   //初始化
         items: [
           {
+            icon: '',
             index: 'Page1',
-            title: '选项1',
+            title: '用户管理',
           },
           {
+            icon: '',
             index: 'Page2',
-            title: '选项2'
+            title: '模板管理'
           },
           {
+            icon: '',
             index: 'Page3',
-            title: '选项3'
-          }/*,
-          {
-            index: 'Page4',
-            title: '选项4'
+            title: '签名管理'
+          }
+        ],
+        subItems:[
+          { icon: '',
+            index: 'Page1',
+            title: '管理1'
           },
-          {
-            index: 'Page5',
-            title: '选项5'
+          { icon: '',
+            index: 'Page2',
+            title: '管理2'
           },
-          {
-            index: 'Page6',
-            title: '选项6'
-          }*/
+
         ]
       }
     },
@@ -108,7 +80,7 @@
     width: 250px;
   }
 
-  .el-menu-item-group {
+  .el-menu-item{
     background-color: #364150;
   }
 

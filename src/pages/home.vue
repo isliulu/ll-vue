@@ -4,10 +4,12 @@
   </div>
 </template>
 <script>
-/*  export default({
-    name:'home',
+ /* export default({
     data() {
       return {}
+    },
+    components:{
+      vAddusers
     }
   })*/
 </script>

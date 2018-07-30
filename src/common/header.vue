@@ -28,13 +28,15 @@
   }
 </script>
 
-<style>
+<style lang="scss">
   header {
     width: 100%;
     height: 60px;
     background-color: #2b3643;
+
+    i {
+      font-size: 24px;
+    }
   }
-  i {
-    font-size: 24px;
-  }
+
 </style>
