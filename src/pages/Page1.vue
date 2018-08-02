@@ -3,7 +3,7 @@
     <div class="content-header">
       <div class="title">用户管理</div>
       <div class="action" style="float:right">
-        <el-button type="primary"><i class="el-icon-plus"></i>添加用户</el-button>
+        <el-button type="primary" @click="addUser"><i class="el-icon-plus"></i>添加用户</el-button>
       </div>
     </div>
     <div class="content-body">
@@ -99,13 +99,17 @@
         </div>
       </div>
     </div>
+    <addUser :showAddUser.sync="showAddUser" ></addUser>
   </div>
 </template>
 
 <script>
-
+import addUser from '../components/addUser'
   export default {
     name: "userManage",
+    components:{
+      addUser
+    },
     data() {
       return {
         value: '',
@@ -117,7 +121,8 @@
         currentPage: 1,
         start: 1,
         pageSize: 10,
-        totalCount: 100
+        totalCount: 100,
+        showAddUser: false,
       }
     },
     methods: {
@@ -149,7 +154,10 @@
           // console.log(this.tableData);
           this.tableData = res.content;
           this.totalCount = res.totalElements;
-        }
+        },
+      addUser () {
+        this.showAddUser= true
+      }
     },
     created() {
      // this.responseData();
