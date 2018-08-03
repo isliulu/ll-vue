@@ -3,7 +3,7 @@ import Router from 'vue-router';
 
 const Page1 = r => require.ensure([], () => r(require('@/pages/Page1')), 'Page1');
 const Page2 = r => require.ensure([], () => r(require('@/pages/Page2')), 'Page2');
-const Page3 = r => require.ensure([], () => r(require('@/pages/Page2')), 'Page3');
+const Page3 = r => require.ensure([], () => r(require('@/pages/Page3')), 'Page3');
 
 
 const home = r => require.ensure([], () => r(require('@/pages/home')), 'home');

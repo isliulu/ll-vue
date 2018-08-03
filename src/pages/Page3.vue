@@ -1,19 +1,23 @@
 <template>
-  <div class="page3">
-    这是第三页
-    这是第三页
-    这是第三页
-    这是第三页
-    这是第三页
-    这是第三页
-    这是第三页
-    这是第三页
-  </div>
+  <pub>
+    <div class="son">
+      son content
+    </div>
+  </pub>
 </template>
 
 <script>
+  import pub from '../components/public.vue';
     export default {
-        name: "Page3"
+        name: "Page3",
+      data(){
+          return {
+
+          }
+      },
+      components:{
+        pub
+      }
     }
 </script>
 

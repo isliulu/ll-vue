@@ -73,10 +73,10 @@
             </el-table-column>
             <el-table-column prop="handle" label="操作" sortable>
               <template slot-scope="scope">
-                <span class="text-blue">停用权限</span>
-                <span class="text-blue">编辑</span>
-                <span class="text-blue">重置密码</span>
-                <span class="text-blue">充值</span>
+                <el-button type="text">停用权限</el-button>
+                <el-button type="text">编辑</el-button>
+                <el-button type="text">重置密码</el-button>
+                <el-button type="text">充值</el-button>
               </template>
             </el-table-column>
           </el-table>

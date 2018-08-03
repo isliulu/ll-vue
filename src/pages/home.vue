@@ -4,14 +4,7 @@
   </div>
 </template>
 <script>
- /* export default({
-    data() {
-      return {}
-    },
-    components:{
-      vAddusers
-    }
-  })*/
+
 </script>
 <style >
 

@@ -46,7 +46,7 @@
             title: '管理2'
           },
           { icon: '',
-            index: 'Page2',
+            index: 'Page3',
             title: '管理3'
           },
 
