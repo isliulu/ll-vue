@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-dialog title="添加用户" :visible.sync="showUser"  :showAddUser="showAddUser" class="user-dialog" @close="resetFrom(), $emit('update:showAddUser', false)" :modal-append-to-body="false">
+    <el-dialog title="添加用户" :visible.sync="showUser"  :showAddUser="showAddUser" class="user-dialog" @close="resetUserFrom(), $emit('update:showAddUser', false)" :modal-append-to-body="false">
       <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
         <el-form-item label="用户账号" prop="userAccount">
           <el-input v-model="ruleForm.userAccount" placeholder="请输入"></el-input>
@@ -48,9 +48,6 @@
       showAddUser: {
         type: Boolean,
         default: false
-      },
-      ruleForm: {
-        type: Object
       }
     },
     data() {
@@ -77,9 +74,8 @@
 
       return {
         showUser: this.showAddUser,
-        submitForm: false,
-        resetFrom :false,
         formLabelWidth: '120px',
+        demoRuleForm:'',
         ruleForm: {
           userAccount: '1',
           userName: '1',
@@ -127,7 +123,7 @@
       };
     },
     methods: {
-      submitForm(ruleForm) {
+      submitUserForm(ruleForm) {
         this.$refs[ruleForm].validate((valid) => {
           if (valid) {
             alert('submit!');
@@ -137,9 +133,9 @@
           }
         });
       },
-      resetFrom (ruleForm) {
-        if (this.$refs['ruleForm'] !== undefined) {
-          this.$refs['ruleForm'].resetFields()
+     resetUserFrom () {
+        if (this.$refs['showAddUser'] !== undefined) {
+          this.$refs['showAddUser'].resetFields()
         }
       }
     },
