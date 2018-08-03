@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-dialog title="添加用户" :visible.sync="showUser" :showAddUser="showAddUser"  class="user-dialog">
+    <el-dialog title="添加用户" :visible.sync="showUser"  :showAddUser="showAddUser" class="user-dialog" @close="resetFrom(), $emit('update:showAddUser', false)" :modal-append-to-body="false">
       <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
         <el-form-item label="用户账号" prop="userAccount">
           <el-input v-model="ruleForm.userAccount" placeholder="请输入"></el-input>
@@ -37,21 +37,24 @@
       </el-form>
       <div slot="footer" class="dialog-footer">
         <el-button type="primary" @click="submitForm('ruleForm')">下一步</el-button>
-        <el-button  @click="clearForm('ruleForm')">取消</el-button>
+        <el-button   @click="$emit('update:showAddUser', false)">取消</el-button>
       </div>
     </el-dialog>
   </div>
 </template>
 <script>
-
   export default {
     props: {
       showAddUser: {
         type: Boolean,
         default: false
+      },
+      ruleForm: {
+        type: Object
       }
     },
     data() {
+      //验证密码
       var validatePass = (rules, value, callback) => {
         if (value === '') {
           callback(new Error('请输入密码'));
@@ -75,12 +78,11 @@
       return {
         showUser: this.showAddUser,
         submitForm: false,
-        clearForm:false,
-        dialogFormVisible: false,
+        resetFrom :false,
         formLabelWidth: '120px',
         ruleForm: {
-          userAccount: '',
-          userName: '',
+          userAccount: '1',
+          userName: '1',
           telNumber: '',
           userEmail: '',
           userPass: '',
@@ -135,15 +137,17 @@
           }
         });
       },
-      clearForm(ruleForm) {
-        this.$refs[ruleForm].resetField();
+      resetFrom (ruleForm) {
+        if (this.$refs['ruleForm'] !== undefined) {
+          this.$refs['ruleForm'].resetFields()
+        }
       }
     },
     watch: {
       showAddUser () {
         this.showUser = this.showAddUser
       }
-    }
+    },
   }
 </script>
 <style scoped lang="scss">

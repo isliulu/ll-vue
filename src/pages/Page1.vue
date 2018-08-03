@@ -3,7 +3,7 @@
     <div class="content-header">
       <div class="title">用户管理</div>
       <div class="action" style="float:right">
-        <el-button type="primary" @click="addUser"><i class="el-icon-plus"></i>添加用户</el-button>
+        <el-button type="primary" @click="addNum"><i class="el-icon-plus"></i>添加用户</el-button>
       </div>
     </div>
     <div class="content-body">
@@ -99,7 +99,7 @@
         </div>
       </div>
     </div>
-    <addUser :showAddUser.sync="showAddUser" ></addUser>
+    <addUser :showAddUser.sync="showAddUser"></addUser>
   </div>
 </template>
 
@@ -140,7 +140,7 @@ import addUser from '../components/addUser'
         console.log(`当前页: ${val}`);
       },
 
-      responseData(){
+    /*  responseData(){
 
         var param = {
           pageSize:'',
@@ -152,16 +152,17 @@ import addUser from '../components/addUser'
 
         //$http.get($api.query_user, param).then(res => {
           // console.log(this.tableData);
-          this.tableData = res.content;
-          this.totalCount = res.totalElements;
-        },
-      addUser () {
+          //this.tableData = res.content;
+         // this.totalCount = res.totalElements;
+        },*/
+
+      addNum () {
         this.showAddUser= true
       }
     },
-    created() {
+   /* created() {
      // this.responseData();
-    }
+    }*/
   }
 
 </script>
