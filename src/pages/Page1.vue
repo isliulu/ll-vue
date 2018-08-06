@@ -114,8 +114,12 @@ import addUser from '../components/addUser'
       return {
         value: '',
         tableData: [
-          {
-
+          { account:'q1',
+            name:'ll',
+            token:'无权限',
+            availableVsum:'200',
+            availableMsum:'300',
+            time:'2018年7月30日'
           }
         ],
         currentPage: 1,
