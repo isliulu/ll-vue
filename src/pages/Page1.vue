@@ -15,11 +15,15 @@
           <el-form-item label="用户姓名：">
             <el-input placeholder="请输入"></el-input>
           </el-form-item>
-          <el-form-item label="可用语音：">
-            <el-input placeholder="请输入"></el-input>
+          <el-form-item label="可用语音：" v-model="minutes">
+            <el-input placeholder="请输入">
+              <template slot="suffix" >分钟</template>
+            </el-input>
           </el-form-item>
-          <el-form-item label="可用短信：">
-            <el-input placeholder="请输入"></el-input>
+          <el-form-item label="可用短信：" v-model="message">
+            <el-input placeholder="请输入">
+              <template slot="suffix" >条</template>
+            </el-input>
           </el-form-item>
           <el-form-item label="添加时间">
             <el-date-picker
@@ -107,13 +111,14 @@
 </template>
 
 <script>
-import addUser from '../components/addUser';
-import editUserIfo from '../components/editUserIfo';
-import resetPassword from '../components/resetPassword';
-import recharge from '../components/recharge';
+  import addUser from '../components/addUser';
+  import editUserIfo from '../components/editUserIfo';
+  import resetPassword from '../components/resetPassword';
+  import recharge from '../components/recharge';
+
   export default {
     name: "userManage",
-    components:{
+    components: {
       addUser,
       editUserIfo,
       resetPassword,
@@ -122,13 +127,16 @@ import recharge from '../components/recharge';
     data() {
       return {
         value: '',
+        minutes: '',
+        message: '',
         tableData: [
-          { account:'q1',
-            name:'ll',
-            token:'无权限',
-            availableVsum:'200',
-            availableMsum:'300',
-            time:'2018年7月30日'
+          {
+            account: 'q1',
+            name: 'll',
+            token: '无权限',
+            availableVsum: '200',
+            availableMsum: '300',
+            time: '2018年7月30日'
           }
         ],
         currentPage: 1,
@@ -137,8 +145,8 @@ import recharge from '../components/recharge';
         totalCount: 100,
         showAddUser: false,
         editUserIfo: false,
-        showReset:false,
-        showCharge:false,
+        showReset: false,
+        showCharge: false,
       }
     },
     methods: {
@@ -156,24 +164,24 @@ import recharge from '../components/recharge';
         console.log(`当前页: ${val}`);
       },
 
-    /*  responseData(){
+      /*  responseData(){
 
-        var param = {
-          pageSize:'',
-          page: "",
-          sort: "",
-          totalCount:'',
-          number:'',
-        };
+          var param = {
+            pageSize:'',
+            page: "",
+            sort: "",
+            totalCount:'',
+            number:'',
+          };
 
-        //$http.get($api.query_user, param).then(res => {
-          // console.log(this.tableData);
-          //this.tableData = res.content;
-         // this.totalCount = res.totalElements;
-        },*/
+          //$http.get($api.query_user, param).then(res => {
+            // console.log(this.tableData);
+            //this.tableData = res.content;
+           // this.totalCount = res.totalElements;
+          },*/
 
-      addNum () {
-        this.showAddUser= true
+      addNum() {
+        this.showAddUser = true
       },
       edit() {
         this.editUserIfo = true
@@ -193,14 +201,24 @@ import recharge from '../components/recharge';
       }
     },
     created() {
-     // this.responseData();
+      // this.responseData();
     }
   }
 
 </script>
 
-<style scoped>
-  .stopAuth{
+<style scoped lang="scss">
+  .stopAuth {
     cursor: pointer;
   }
+
+</style>
+<style lang="scss">
+  .userManage .el-input__prefix, .el-input__suffix{
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #484848;
+  }
+
+
 </style>

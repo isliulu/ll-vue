@@ -4,12 +4,12 @@
       <el-form :inline="true">
         <el-button type="text">模板选择</el-button>
         <el-button type="text">已选择模板</el-button>
-        <template style="float: right">
+        <template >
           <el-form-item label="模板名称：">
             <el-input></el-input>
           </el-form-item>
           <el-form-item>
-            <el-button type="primary">搜索</el-button>
+            <el-button type="primary" >搜索</el-button>
           </el-form-item>
         </template>
       </el-form>
@@ -78,7 +78,7 @@
     },
     methods: {
       //提交
-      submitUserForm(ruleForm) {
+      /*submitUserForm(ruleForm) {
         this.$refs[ruleForm].validate((valid) => {
           if (valid) {
             alert('submit!');
@@ -87,7 +87,7 @@
             return false;
           }
         });
-      },
+      },*/
       resetUserFrom () {
         if (this.$refs['showTemplate'] !== undefined) {
           this.$refs['showTemplate'].resetFields()
@@ -102,3 +102,9 @@
 <style scoped lang="scss">
 
 </style>
+
+<!--<style lang="scss">
+  .el-form&#45;&#45;inline .el-form-item{
+    float: right;
+  }
+</style>-->
