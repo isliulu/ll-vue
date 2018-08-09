@@ -73,10 +73,10 @@
             </el-table-column>
             <el-table-column prop="handle" label="操作" sortable>
               <template slot-scope="scope">
-                <el-button type="text">停用权限</el-button>
-                <el-button type="text">编辑</el-button>
-                <el-button type="text">重置密码</el-button>
-                <el-button type="text">充值</el-button>
+                <el-button type="text" @click="stop" class="stopAuth">停用权限</el-button>
+                <el-button type="text" @click="edit">编辑</el-button>
+                <el-button type="text" @click="reset">重置密码</el-button>
+                <el-button type="text" @click="addCharge">充值</el-button>
               </template>
             </el-table-column>
           </el-table>
@@ -100,15 +100,24 @@
       </div>
     </div>
     <addUser :showAddUser.sync="showAddUser"></addUser>
+    <editUserIfo :editUserIfo.sync="editUserIfo"></editUserIfo>
+    <resetPassword :showReset.sync="showReset"></resetPassword>
+    <recharge :showCharge.sync="showCharge"></recharge>
   </div>
 </template>
 
 <script>
-import addUser from '../components/addUser'
+import addUser from '../components/addUser';
+import editUserIfo from '../components/editUserIfo';
+import resetPassword from '../components/resetPassword';
+import recharge from '../components/recharge';
   export default {
     name: "userManage",
     components:{
-      addUser
+      addUser,
+      editUserIfo,
+      resetPassword,
+      recharge
     },
     data() {
       return {
@@ -127,6 +136,9 @@ import addUser from '../components/addUser'
         pageSize: 10,
         totalCount: 100,
         showAddUser: false,
+        editUserIfo: false,
+        showReset:false,
+        showCharge:false,
       }
     },
     methods: {
@@ -162,6 +174,22 @@ import addUser from '../components/addUser'
 
       addNum () {
         this.showAddUser= true
+      },
+      edit() {
+        this.editUserIfo = true
+      },
+      reset() {
+        this.showReset = true
+      },
+      addCharge() {
+        this.showCharge = true
+      },
+      stop() {
+
+        this.$message({
+          message: '禁用成功',
+          type: 'warning'
+        });
       }
     },
     created() {
@@ -172,4 +200,7 @@ import addUser from '../components/addUser'
 </script>
 
 <style scoped>
+  .stopAuth{
+    cursor: pointer;
+  }
 </style>

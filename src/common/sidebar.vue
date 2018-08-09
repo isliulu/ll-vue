@@ -34,7 +34,17 @@
             icon: '',
             index: 'Page1',
             title: '用户管理',
-          }
+          },
+          {
+            icon: '',
+            index: 'Page2',
+            title: '模板管理',
+          },
+          {
+            icon: '',
+            index: 'Page3',
+            title: '签名管理',
+          },
         ],
         subItems:[
           { icon: '',

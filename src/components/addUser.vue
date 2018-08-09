@@ -20,10 +20,10 @@
         <el-form-item label="确认密码" prop="checkPass">
           <el-input v-model="ruleForm.checkPass" auto-complete="off" type="password"></el-input>
         </el-form-item>
-        <el-form-item label="开放权限" prop="token">
-          <el-checkbox-group v-model="ruleForm.token">
-            <el-checkbox label="语音通知权限" name="token"></el-checkbox>
-            <el-checkbox label="短信通知权限" name="token"></el-checkbox>
+        <el-form-item label="开放权限" prop="Authorization">
+          <el-checkbox-group v-model="ruleForm.Authorization">
+            <el-checkbox label="语音通知权限" name="Authorization"></el-checkbox>
+            <el-checkbox label="短信通知权限" name="Authorization"></el-checkbox>
           </el-checkbox-group>
         </el-form-item>
         <el-form-item label="可用语音" prop="availableVsum">
@@ -36,14 +36,23 @@
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
-        <el-button type="primary" @click="submitForm('ruleForm')">下一步</el-button>
+        <el-button type="primary" @click=" nextSelect">下一步</el-button>
         <el-button   @click="$emit('update:showAddUser', false)">取消</el-button>
       </div>
     </el-dialog>
+    <templateSelect :showTemplate.sync="showTemplate" ></templateSelect>
   </div>
 </template>
+
 <script>
+  import templateSelect from '../components/templateSelect';
+  import vm from '../services/vm.js';
+
   export default {
+    name:"addUser",
+    components:{
+      templateSelect
+    },
     props: {
       showAddUser: {
         type: Boolean,
@@ -51,31 +60,11 @@
       }
     },
     data() {
-      //验证密码
-      var validatePass = (rules, value, callback) => {
-        if (value === '') {
-          callback(new Error('请输入密码'));
-        } else {
-          if (this.ruleForm.checkPass !== '') {
-            this.$ref.ruleForm.validateField('checkPass');
-          }
-          callback();
-        }
-      };
-      var validateCheckPass = (rules, value, callback) => {
-        if (value === '') {
-          callback(new Error('请再次输入密码'));
-        } else if (value !== this.ruleForm.userPass) {
-          callback(new Error('两次输入密码不一致!'));
-        } else {
-          callback();
-        }
-      };
-
       return {
         showUser: this.showAddUser,
         formLabelWidth: '120px',
         demoRuleForm:'',
+        showTemplate:false,
         ruleForm: {
           userAccount: '1',
           userName: '1',
@@ -83,7 +72,7 @@
           userEmail: '',
           userPass: '',
           checkPass: '',
-          token: [],
+          Authorization: [],
           availableVsum: '',
           availableMsum: '',
         },
@@ -103,14 +92,12 @@
             { type: 'email', message: '请输入正确的邮箱地址', trigger: ['blur', 'change'] }
           ],
           userPass: [
-            {validator: validatePass, trigger: 'blur'},
             {required: true, message: '请输入', trigger: 'blur'},
           ],
           checkPass: [
-            {validator: validateCheckPass, trigger: 'blur'},
             {required: true, message: '请输入', trigger: 'blur'},
           ],
-          token: [
+          Authorization: [
             {required: true, message: '请输入', trigger: 'blur'},
           ],
           availableVsum: [
@@ -123,31 +110,31 @@
       };
     },
     methods: {
-      submitUserForm(ruleForm) {
-        this.$refs[ruleForm].validate((valid) => {
-          if (valid) {
-            alert('submit!');
-          } else {
-            console.log('error submit!!');
-            return false;
-          }
-        });
-      },
-     resetUserFrom () {
+      resetUserFrom () {
         if (this.$refs['showAddUser'] !== undefined) {
           this.$refs['showAddUser'].resetFields()
         }
-      }
+      },
+      nextSelect () {
+        this.showTemplate= true;
+        this.showUser= false;
+      },
     },
     watch: {
       showAddUser () {
         this.showUser = this.showAddUser
       }
     },
+    created() {
+      vm.$on('showTemplate', showTemplate => {
+        this.showTemplate = false;
+        this.showUser= true;
+      });
+    }
+
   }
 </script>
-<style scoped lang="scss">
-  .user-dialog {
-    width: 1200px;
-  }
+
+<style scoped>
+
 </style>

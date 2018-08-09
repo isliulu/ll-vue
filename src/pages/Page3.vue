@@ -4,30 +4,30 @@
       <div class="son">
         son content
       </div>
-      <div class="action" style="float:right">
-        <el-button type="primary" @click="addNum"><i class="el-icon-plus"></i>添加用户</el-button>
+      <div class="action" >
+        <el-button type="primary" @click="addNum">下一步</el-button>
       </div>
     </pub>
-    <addUser :showAddUser.sync="showAddUser"></addUser>
+    <templateSelect :showTemplate.sync="showTemplate"></templateSelect>
   </div>
 </template>
 
 <script>
   import pub from '../components/public.vue';
-  import addUser from '../components/addUser';
+  import templateSelect from '../components/templateSelect';
     export default {
         name: "Page3",
         components:{
-        addUser, pub
+          templateSelect, pub
       },
       data(){
           return {
-            showAddUser: false,
+            showTemplate: false,
           }
       },
       methods:{
         addNum () {
-          this.showAddUser= true
+          this.showTemplate= true
         }
       }
     }
