@@ -33,23 +33,13 @@
           {
             icon: '',
             index: 'Page1',
-            title: '用户管理',
-          },
-          {
-            icon: '',
-            index: 'Page2',
-            title: '模板管理',
-          },
-          {
-            icon: '',
-            index: 'Page3',
-            title: '签名管理',
-          },
+            title: '导航',
+          }
         ],
         subItems:[
           { icon: '',
             index: 'Page1',
-            title: '管理1'
+            title: '用户管理'
           },
           { icon: '',
             index: 'Page2',
@@ -58,6 +48,10 @@
           { icon: '',
             index: 'Page3',
             title: '管理3'
+          },
+          { icon: '',
+            index: 'Page4',
+            title: '模板管理'
           },
 
         ]
