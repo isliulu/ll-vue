@@ -2,7 +2,7 @@
   <div>
     <el-dialog title="编辑用户信息" :visible.sync="editUser"  :editUserIfo="editUserIfo"
                @close="resetUserFrom(), $emit('update:editUserIfo', false)" :modal-append-to-body="false">
-      <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
+      <el-form :model="ruleForm"  ref="editForm" label-width="100px">
         <el-form-item label="用户账号" prop="userAccount">
           <el-input v-model="ruleForm.userAccount" placeholder="请输入"></el-input>
         </el-form-item>
@@ -44,7 +44,7 @@
       return {
         editUser: this.editUserIfo,
         formLabelWidth: '120px',
-        demoRuleForm:'',
+        editForm:'',
         ruleForm: {
           userAccount: '',
           userName: '',
@@ -54,37 +54,15 @@
           checkPass: '',
           Authorization: [],
         },
-        rules: {
-          userAccount: [
-            {required: true, message: '请输入', trigger: 'blur'},
-          ],
-          userName: [
-            {required: true, message: '请输入', trigger: 'blur'},
-          ],
-          telNumber: [
-            {required: false, message: '请输入', trigger: 'blur'},
-            {min: 11, max: 11, message: '请输入正确的电话格式', trigger: 'blur'}
-          ],
-          userEmail: [
-            { required: false, message: '请输入邮箱地址', trigger: 'blur' },
-            { type: 'email', message: '请输入正确的邮箱地址', trigger: ['blur', 'change'] }
-          ],
-          userPass: [
-            {required: true, message: '请输入', trigger: 'blur'},
-          ],
-          checkPass: [
-            {required: true, message: '请输入', trigger: 'blur'},
-          ],
-          Authorization: [
-            {required: true, message: '请输入', trigger: 'blur'},
-          ],
-        }
       };
     },
     methods: {
+      submitForm(){
+        this.$refs['editForm'].jfvalidate((valid) => {})
+      },
       resetUserFrom () {
-        if (this.$refs['showAddUser'] !== undefined) {
-          this.$refs['showAddUser'].resetFields()
+        if (this.$refs['editUserIfo'] !== undefined) {
+          this.$refs['editUserIfo'].resetFields()
         }
       }
     },

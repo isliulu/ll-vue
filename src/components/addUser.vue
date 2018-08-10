@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-dialog title="添加用户" :visible.sync="showUser"  :showAddUser="showAddUser" class="user-dialog" @close="resetUserFrom(), $emit('update:showAddUser', false)" :modal-append-to-body="false">
-      <el-form :model="ruleForm" :rules="rules" ref="ruleForm" :label-position="labelPosition" label-width="90px" class="demo-ruleForm">
+      <el-form :model="ruleForm" ref="userForm" :label-position="labelPosition" label-width="90px" >
         <el-form-item label="用户账号" prop="userAccount">
           <el-input v-model="ruleForm.userAccount" placeholder="请输入"></el-input>
         </el-form-item>
@@ -64,6 +64,7 @@
         showUser: this.showAddUser,
         labelPosition: 'right',
         showTemplate:false,
+        userForm:'',
         ruleForm: {
           userAccount: '1',
           userName: '1',
@@ -74,37 +75,6 @@
           Authorization: [],
           availableVsum: '',
           availableMsum: '',
-        },
-        rules: {
-          userAccount: [
-            {required: true, message: '请输入', trigger: 'blur'},
-          ],
-          userName: [
-            {required: true, message: '请输入', trigger: 'blur'},
-          ],
-          telNumber: [
-            {required: false, message: '请输入', trigger: 'blur'},
-            {min: 11, max: 11, message: '请输入正确的电话格式', trigger: 'blur'}
-          ],
-          userEmail: [
-            { required: false, message: '请输入邮箱地址', trigger: 'blur' },
-            { type: 'email', message: '请输入正确的邮箱地址', trigger: ['blur', 'change'] }
-          ],
-          userPass: [
-            {required: true, message: '请输入', trigger: 'blur'},
-          ],
-          checkPass: [
-            {required: true, message: '请输入', trigger: 'blur'},
-          ],
-          Authorization: [
-            {required: true, message: '请输入', trigger: 'blur'},
-          ],
-          availableVsum: [
-            {required: true, message: '请输入', trigger: 'blur'},
-          ],
-          availableMsum: [
-            {required: true, message: '请输入', trigger: 'blur'},
-          ]
         }
       };
     },

@@ -30,6 +30,7 @@ export default new Router({
         {path: '/Page4', name: 'Page4', component: Page4},
         ]
     }
+
   ]
 })
 
