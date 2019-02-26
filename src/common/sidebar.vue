@@ -22,18 +22,16 @@
   </div>
 </template>
 
-<script>
-  import vm from '../services/vm.js';
+<script>import vm from '../services/vm.js'
 
-  export default {
-    data() {
-      return {
-        collapse: false,   //初始化
-        items: [
+export default {data () {
+  return {
+  collapse: false,   //初始化
+  items: [
           {
             icon: '',
             index: 'Page1',
-            title: '导航',
+            title: '导航'
           }
         ],
         subItems:[
