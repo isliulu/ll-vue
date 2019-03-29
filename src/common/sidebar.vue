@@ -24,43 +24,48 @@
 
 <script>import vm from '../services/vm.js'
 
-export default {data () {
-  return {
-  collapse: false,   //初始化
-  items: [
-          {
-            icon: '',
-            index: 'Page1',
-            title: '导航'
-          }
-        ],
-        subItems:[
-          { icon: '',
-            index: 'Page1',
-            title: '用户管理'
-          },
-          { icon: '',
-            index: 'Page2',
-            title: '管理2'
-          },
-          { icon: '',
-            index: 'Page3',
-            title: '管理3'
-          },
-          { icon: '',
-            index: 'Page4',
-            title: '模板管理'
-          },
+export default {
+  data() {
+    return {
+      collapse: false,   //初始化
+      items: [
+        {
+          icon: '',
+          index: 'Page1',
+          title: '导航一'
+        },
+        {
+          icon: '',
+          index: 'Page',
+          title: '导航二'
+        }
+      ],
+      subItems: [
+        {
+          icon: '',
+          index: 'Page1',
+          title: '用户管理'
+        },
+        {
+          icon: '',
+          index: 'Page2',
+          title: '管理2'
+        },
+        {
+          icon: '',
+          index: 'Page3',
+          title: '管理3'
+        }
 
-        ]
-      }
-    },
-    created() {
-      vm.$on('collapse', data => {
-        this.collapse = data;
-      });
+      ]
     }
+  },
+  created() {
+    vm.$on('collapse', data => {
+      this.collapse = data;
+    });
   }
+}
 </script>
 
 <style>
@@ -76,7 +81,7 @@ export default {data () {
     width: 250px;
   }
 
-  .el-menu-item{
+  .el-menu-item {
     background-color: #364150;
   }
 

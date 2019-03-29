@@ -1,8 +1,8 @@
 <template>
   <header>
     <div class="head-left">
-      <div class="logo" style="padding-top:16px;margin-left: 20px">
-        <img src="../assets/images/head-logo.png">
+      <div class="logo">
+        <img src="/static/img/logo.png">
         <i @click="doCollapse" style="margin-left:70px;cursor:pointer;color: #505c6b" class="el-icon-menu"></i>
       </div>
     </div>
@@ -36,6 +36,12 @@
 
     i {
       font-size: 24px;
+    }
+
+    .logo{
+      padding-top:16px;
+      margin-left: 20px;
+      color: red;
     }
   }
 
