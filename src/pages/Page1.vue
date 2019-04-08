@@ -103,27 +103,13 @@
         </div>
       </div>
     </div>
-    <addUser :showAddUser.sync="showAddUser"></addUser>
-    <editUserIfo :editUserIfo.sync="editUserIfo"></editUserIfo>
-    <resetPassword :showReset.sync="showReset"></resetPassword>
-    <recharge :showCharge.sync="showCharge"></recharge>
   </div>
 </template>
 
 <script>
-  import addUser from '../components/addUser';
-  import editUserIfo from '../components/editUserIfo';
-  import resetPassword from '../components/resetPassword';
-  import recharge from '../components/recharge';
 
   export default {
     name: "userManage",
-    components: {
-      addUser,
-      editUserIfo,
-      resetPassword,
-      recharge
-    },
     data() {
       return {
         value: '',
@@ -211,14 +197,5 @@
   .stopAuth {
     cursor: pointer;
   }
-
-</style>
-<style lang="scss">
-  .userManage .el-input__prefix, .el-input__suffix{
-    font-family: PingFangSC-Regular;
-    font-size: 14px;
-    color: #484848;
-  }
-
 
 </style>

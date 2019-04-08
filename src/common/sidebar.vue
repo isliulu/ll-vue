@@ -10,7 +10,7 @@
                 <i :class="item.icon"></i>
                 <span slot="title">{{item.title}}</span>
               </template>
-              <el-menu-item v-for="subItem in subItems" :key="subItem.index" :index="subItem.index">
+              <el-menu-item v-for="(subItem,i) in subItems" :key="i" :index="subItem.index">
                 <i :class="subItem.icon"></i>
                 <span slot="title">{{subItem.title}}</span>
               </el-menu-item>
@@ -42,17 +42,17 @@ export default {
       ],
       subItems: [
         {
-          icon: '',
+          icon: 'lee ic-user1',
           index: 'Page1',
           title: '用户管理'
         },
         {
-          icon: '',
+          icon: 'lee ic-template',
           index: 'Page2',
           title: '管理2'
         },
         {
-          icon: '',
+          icon: 'lee ic-signature',
           index: 'Page3',
           title: '管理3'
         }
