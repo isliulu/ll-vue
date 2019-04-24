@@ -39,21 +39,6 @@
     font-size: 20px;
   }
 
-  /*.main {*/
-    /*position: relative;*/
-    /*width: 100%;*/
-    /*height: calc(100% - 60px);*/
-  /*}*/
-  /*.content {*/
-    /*margin-left: 250px;*/
-    /*height: 100%;*/
-    /*color: #000;*/
-  /*}*/
-  /*.aa {*/
-    /*margin-left: 65px;*/
-    /*height: 100%;*/
-  /*}*/
-
   @import "../static/font/iconfont.css";
 </style>
 

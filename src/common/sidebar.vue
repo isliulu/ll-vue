@@ -2,8 +2,8 @@
   <div id="main">
     <aside class="myside">
       <div class="sidebar" style="width: 250px;height:100%">
-        <el-menu class="el-menu-sidebar" style=" background-color: #364150;height:100%" active-text-color="#20a0ff"
-                 text-color="#bfcbd9" :collapse="collapse" unique-opened router>
+        <el-menu class="el-menu-sidebar" style=" background-color: #f5f7fa;height:100%" active-text-color="#20a0ff"
+                 text-color="#00000" :collapse="collapse" unique-opened router>
           <template v-for="item in items">
             <el-submenu :index="item.index" :key="item.index">
               <template slot="title">
@@ -81,8 +81,5 @@ export default {
     width: 250px;
   }
 
-  .el-menu-item {
-    background-color: #364150;
-  }
 
 </style>

@@ -2,8 +2,8 @@
   <header>
     <div class="head-left">
       <div class="logo">
-        <img src="/static/img/logo.png">
-        <i @click="doCollapse" style="margin-left:70px;cursor:pointer;color: #505c6b" class="el-icon-menu"></i>
+        <img src="/static/img/avatar.png">
+        <i @click="doCollapse" class="lee ic-menu_open change-btn"></i>
       </div>
     </div>
     <div class="head-right"></div>
@@ -32,16 +32,18 @@
   header {
     width: 100%;
     height: 60px;
-    background-color: #2b3643;
-
-    i {
-      font-size: 24px;
-    }
+    background-color: #dcdfe6;
 
     .logo{
-      padding-top:16px;
+      padding-top: 10px;
       margin-left: 20px;
-      color: red;
+    }
+
+    .change-btn{
+      margin-left: 70px;
+      cursor: pointer;
+      font-size: 18px;
+      color: #66b1ff;
     }
   }
 

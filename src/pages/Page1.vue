@@ -1,29 +1,13 @@
 <template>
-  <div class="userManage jf-content">
+  <div class="userManage">
     <div class="content-header">
       <div class="title">用户管理</div>
-      <div class="action" style="float:right">
-        <el-button type="primary" @click="addNum"><i class="el-icon-plus"></i>添加用户</el-button>
-      </div>
     </div>
     <div class="content-body">
       <div class="main-content">
         <el-form :inline="true">
           <el-form-item label="用户账号：">
             <el-input placeholder="请输入"></el-input>
-          </el-form-item>
-          <el-form-item label="用户姓名：">
-            <el-input placeholder="请输入"></el-input>
-          </el-form-item>
-          <el-form-item label="可用语音：" v-model="minutes">
-            <el-input placeholder="请输入">
-              <template slot="suffix" >分钟</template>
-            </el-input>
-          </el-form-item>
-          <el-form-item label="可用短信：" v-model="message">
-            <el-input placeholder="请输入">
-              <template slot="suffix" >条</template>
-            </el-input>
           </el-form-item>
           <el-form-item label="添加时间">
             <el-date-picker
@@ -77,10 +61,8 @@
             </el-table-column>
             <el-table-column prop="handle" label="操作" sortable>
               <template slot-scope="scope">
-                <el-button type="text" @click="stop" class="stopAuth">停用权限</el-button>
+                <el-button type="text" @click="stop" class="stop-auth">停用权限</el-button>
                 <el-button type="text" @click="edit">编辑</el-button>
-                <el-button type="text" @click="reset">重置密码</el-button>
-                <el-button type="text" @click="addCharge">充值</el-button>
               </template>
             </el-table-column>
           </el-table>
@@ -194,8 +176,17 @@
 </script>
 
 <style scoped lang="scss">
-  .stopAuth {
+  .userManage{
+    padding: 15px;
+  }
+
+  .content-body{
+    margin-top: 20px;
+  }
+
+  .stop-auth {
     cursor: pointer;
   }
 
 </style>
+
